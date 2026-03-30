@@ -1,0 +1,61 @@
+# Allow all crawlers to fully index the site
+User-agent: *
+Allow: /
+
+# Disallow search bots from crawling admin and API routes
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /search?
+Disallow: /contact?sent=
+
+# Prevent duplicate content from sorting/filtering
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+
+# Google Search Bot specific rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+Request-rate: 10/1s
+
+# Bing Bot specific rules  
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+Request-rate: 5/1s
+
+# Yandex Bot
+User-agent: Yandexbot
+Allow: /
+Crawl-delay: 1
+
+# Baidu Bot
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+# Sitemap location - Critical for SEO!
+Sitemap: https://www.mydelhimetro.in/sitemap.xml
+Sitemap: https://www.mydelhimetro.in/sitemap-stations.xml
+Sitemap: https://www.mydelhimetro.in/sitemap-routes.xml
+User-agent: Bingbot
+Crawl-delay: 2
+
+# Meta/Facebook crawler
+User-agent: facebookexternalhit
+Allow: /
+
+# Twitter crawler
+User-agent: Twitterbot
+Allow: /
+
+# Sitemap locations
+Sitemap: https://www.mydelhimetro.in/sitemap.xml
+Sitemap: https://www.mydelhimetro.in/sitemap-pages.xml
+Sitemap: https://www.mydelhimetro.in/sitemap-blogs.xml
+Sitemap: https://www.mydelhimetro.in/sitemap-stations.xml
+
+# Performance directive
+Host: https://www.mydelhimetro.in

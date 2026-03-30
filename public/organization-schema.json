@@ -1,0 +1,37 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "My Delhi Metro Guide",
+  "alternateName": "Delhi Metro Guide",
+  "url": "https://www.mydelhimetro.in",
+  "logo": "https://www.mydelhimetro.in/logo.png",
+  "description": "Comprehensive Delhi Metro route planner, station information, fares, and travel guides for all 289 stations across 12 metro lines in Delhi NCR.",
+  "telephone": "+91-1800-123-456",
+  "email": "support@mydelhimetro.in",
+  "areaServed": {
+    "@type": "Place",
+    "name": "Delhi NCR",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "India",
+      "addressRegion": "Delhi"
+    }
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "28.6139",
+    "longitude": "77.2090"
+  },
+  "sameAs": [
+    "https://www.facebook.com/mydelhimetro",
+    "https://www.twitter.com/mydelhimetro",
+    "https://www.instagram.com/mydelhimetro",
+    "https://www.linkedin.com/company/mydelhimetro"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Service",
+    "telephone": "+91-1800-123-456",
+    "email": "support@mydelhimetro.in"
+  }
+}

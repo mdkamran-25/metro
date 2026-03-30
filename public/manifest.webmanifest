@@ -1,0 +1,22 @@
+{
+  "name": "Delhi Metro Guide",
+  "short_name": "Metro Guide",
+  "description": "Delhi Metro route planner with stations, fare, lines and tourist guide.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#2A3752",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}
