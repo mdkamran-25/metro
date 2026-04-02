@@ -1,19 +1,52 @@
-# Enable Rewrite Engine
+# ===== DELHI METRO GUIDE - APACHE CONFIGURATION =====
+# This .htaccess file handles URL rewriting for React Router and sets security headers
+
+# Enable Rewrite Engine for single-page app routing
 RewriteEngine On
 RewriteBase /
 
-# Preserve direct access to files and folders
+# Preserve direct access to files and folders (don't rewrite real files/directories)
 RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+# Route all other requests to index.html for React Router to handle
 RewriteRule . /index.html [L]
 
-# ✅ COMPRESSION - Enable GZIP for faster delivery
+# ===== SECURITY HEADERS =====
+# These headers improve site security and provide positive SEO signals to Google
+<IfModule mod_headers.c>
+  # Prevent clickjacking attacks - only allow site to be embedded in iframes on same origin
+  Header always set X-Frame-Options "SAMEORIGIN"
+  
+  # Prevent MIME type sniffing - browsers must respect Content-Type header
+  Header always set X-Content-Type-Options "nosniff"
+  
+  # Enable XSS (Cross-Site Scripting) protection in older browsers
+  Header always set X-XSS-Protection "1; mode=block"
+  
+  # Control referrer information sent to other sites (privacy & SEO signal)
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  
+  # Enable DNS prefetch control
+  Header set X-DNS-Prefetch-Control "on"
+  
+  # Permissions policy for features like camera, microphone
+  Header set Permissions-Policy "geolocation=(), camera=(), microphone=(), payment=()"
+  
+  # Content Security Policy - allows from same origin
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none';"
+</IfModule>
+
+# ===== COMPRESSION =====
+# Enable GZIP compression for faster delivery and better Core Web Vitals scores
 <IfModule mod_deflate.c>
+  # Compress HTML, CSS, JavaScript and JSON responses
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 </IfModule>
 
-# ✅ CACHE HEADERS - Long expiration for versioned assets
+# ===== CACHE HEADERS =====
+# Set appropriate expiration times to reduce server load and improve performance
+# Versioned assets (with hash) can be cached longer
 <IfModule mod_expires.c>
   ExpiresActive On
   

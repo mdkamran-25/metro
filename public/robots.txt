@@ -1,8 +1,12 @@
-# Allow all crawlers to fully index the site
+# ===== SITEMAP CONFIGURATION FOR DELHI METRO GUIDE =====
+# This file tells search engines how to crawl our site efficiently
+
+# Allow all crawlers to fully index the site (default allow)
 User-agent: *
 Allow: /
 
-# Disallow search bots from crawling admin and API routes
+# ===== CRAWLER RESTRICTIONS =====
+# Prevent crawling of non-content pages that waste crawl budget
 Disallow: /admin/
 Disallow: /api/
 Disallow: /private/
@@ -10,7 +14,7 @@ Disallow: /*.json$
 Disallow: /search?
 Disallow: /contact?sent=
 
-# Prevent duplicate content from sorting/filtering
+# Prevent indexing of parameter-based duplicate content
 Disallow: /*?*sort=
 Disallow: /*?*filter=
 
@@ -37,11 +41,11 @@ Allow: /
 Crawl-delay: 2
 
 # Sitemap location - Critical for SEO!
-Sitemap: https://www.mydelhimetro.in/sitemap.xml
-Sitemap: https://www.mydelhimetro.in/sitemap-stations.xml
-Sitemap: https://www.mydelhimetro.in/sitemap-routes.xml
-User-agent: Bingbot
-Crawl-delay: 2
+Sitemap: https://mydelhimetro.in/sitemap.xml
+Sitemap: https://mydelhimetro.in/sitemap-stations.xml
+Sitemap: https://mydelhimetro.in/sitemap-routes.xml
+Sitemap: https://mydelhimetro.in/sitemap-pages.xml
+Sitemap: https://mydelhimetro.in/sitemap-blogs.xml
 
 # Meta/Facebook crawler
 User-agent: facebookexternalhit
@@ -51,11 +55,9 @@ Allow: /
 User-agent: Twitterbot
 Allow: /
 
-# Sitemap locations
-Sitemap: https://www.mydelhimetro.in/sitemap.xml
-Sitemap: https://www.mydelhimetro.in/sitemap-pages.xml
-Sitemap: https://www.mydelhimetro.in/sitemap-blogs.xml
-Sitemap: https://www.mydelhimetro.in/sitemap-stations.xml
+# WhatsApp Crawler
+User-agent: WhatsApp
+Allow: /
 
 # Performance directive
-Host: https://www.mydelhimetro.in
+Host: https://mydelhimetro.in
